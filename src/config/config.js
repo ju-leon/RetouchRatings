@@ -7,8 +7,8 @@ const config = {
     projectId: "retoucheu-b5812",
     storageBucket: "retoucheu-b5812.appspot.com",
     messagingSenderId: "71926711569",
-    appId: "1:71926711569:web:df46b7bc1737a07c0978b0",
-    measurementId: "G-DHL6HZJGNP"
+    appId: "1:71926711569:web:d4daba8a1c5359860978b0",
+    measurementId: "G-23BG4B0G04"
 };
 
 if (!firebase.apps.length) {

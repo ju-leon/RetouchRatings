@@ -1,7 +1,11 @@
 import React, {Component} from "react";
 import {storageRef, storage, database} from "./config/config";
 import './FaceImage.css';
+import * as firebase from "firebase";
 
+function getRandomInt(max) {
+    return Math.floor(Math.random() * Math.floor(max));
+}
 
 class FaceImage extends Component {
 
@@ -12,11 +16,12 @@ class FaceImage extends Component {
 
     componentDidMount() {
         console.log(this.props)
-        const ref = storage.ref('pics/' + this.props.images[this.props.index] + ".png");
+        const ref = storage.ref('pics/' + this.props.images[this.props.index] + ".jpeg");
         ref.getDownloadURL().then(url => this.setState({url: url}));
     }
 
     render() {
+
 
         return (
             <div class="container">
@@ -34,12 +39,29 @@ class FaceImage extends Component {
 
     imageClick() {
 
-        var ratingsRef = database.collection("ratings");
+        let ratingsRef = database.collection("ratings");
 
         ratingsRef.add({
             winner: this.props.images[this.props.index],
             looser: this.props.images[1 - this.props.index]
         })
+
+        let imagesRef = database.collection("images");
+
+
+        imagesRef.doc(this.props.images[0]).set(
+            {
+                last_edited: firebase.firestore.FieldValue.serverTimestamp()
+            }
+        )
+
+        imagesRef.doc(this.props.images[1]).set(
+            {
+                last_edited: firebase.firestore.FieldValue.serverTimestamp() + getRandomInt(10000)
+            }
+        )
+
+
     }
 
 }
