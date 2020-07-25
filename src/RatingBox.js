@@ -1,5 +1,4 @@
 import React, {Component} from "react";
-import {storageRef, storage, database} from "./config/config";
 import FaceImage from "./FaceImage";
 
 
@@ -11,18 +10,16 @@ class RatingBox extends Component {
     }
 
     componentDidMount() {
-        database.collection('images/')
-            .orderBy("last_edited", "asc")
-            .limit(2).get()
-            .then(querySnapshot => {
-                querySnapshot.forEach(doc => {
-                    // doc.data() is never undefined for query doc snapshots
-                    console.log(doc.id, " => ", doc.data());
-                    this.setState(prevState => ({
-                        images: [...prevState.images, doc.id]
-                    }))
-                });
-            })
+
+        fetch(process.env.REACT_APP_API_URL + "random_pair").then(res => res.json()).then(querySnapshot => {
+            console.log(querySnapshot)
+            querySnapshot.forEach(doc => {
+                // doc.data() is never undefined for query doc snapshots
+                this.setState(prevState => ({
+                    images: [...prevState.images, doc.id]
+                }))
+            });
+        })
     }
 
     render() {
