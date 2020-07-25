@@ -14,7 +14,7 @@ class FaceImage extends Component {
 
     componentDidMount() {
         console.log(this.props)
-        this.setState({url: "http://localhost:8080/image?id=" + this.props.images[this.props.index]})
+        this.setState({url: process.env.REACT_APP_API_URL + "image?id=" + this.props.images[this.props.index]})
     }
 
     render() {
@@ -42,7 +42,7 @@ class FaceImage extends Component {
                 looser: this.props.images[1 - this.props.index]
             })
         };
-        fetch('http://localhost:8080/announce_winner', requestOptions)
+        fetch(process.env.REACT_APP_API_URL + 'announce_winner', requestOptions)
             .then(window.location.reload());
 
     }
