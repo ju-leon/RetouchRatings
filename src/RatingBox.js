@@ -11,7 +11,7 @@ class RatingBox extends Component {
 
     componentDidMount() {
 
-        fetch(process.env.REACT_APP_API_URL + "random_pair").then(res => res.json()).then(querySnapshot => {
+        fetch(process.env.REACT_APP_API_URL + "random_pair?gender=f").then(res => res.json()).then(querySnapshot => {
             console.log(querySnapshot)
             querySnapshot.forEach(doc => {
                 // doc.data() is never undefined for query doc snapshots

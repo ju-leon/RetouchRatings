@@ -5,14 +5,13 @@ import FaceImage from "./FaceImage";
 import RatingBox from "./RatingBox";
 
 
-
-
 function App() {
 
     return (
         <div className="App">
             <header className="App-header">
                 <RatingBox/>
+
             </header>
         </div>
     );
