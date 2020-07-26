@@ -12,6 +12,7 @@ import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 
 import {Container, Row, Col} from 'reactstrap';
+import Leaderboard from "./Leaderboard";
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
                 <Switch>
                     <Route exact path='/' component={Home}/>
                     <Route path='/rate' component={RatingBox}/>
+                    <Route path='/leaderboard' component={Leaderboard}/>
                 </Switch>
 
                 <div className="copyright">

@@ -19,6 +19,10 @@ const Home = () => {
         history.push({pathname: "/rate", state: {gender: "f"}});
     }
 
+    const handleClickLeaderboard = () => {
+        history.push({pathname: "/leaderboard", state: {gender: "f"}});
+    }
+
 
     return (
         <div>
@@ -47,6 +51,15 @@ const Home = () => {
                         >
                             <NavigationIcon/>
                             Women
+                        </Fab>
+                    </Col>
+                    <div className="divider-big"/>
+
+                    <Col>
+                        <Fab variant="extended" color="primary" aria-label="add" onClick={handleClickLeaderboard}
+                        >
+                            <NavigationIcon/>
+                            Leaderboard
                         </Fab>
                     </Col>
                     <div className="divider-big"/>
