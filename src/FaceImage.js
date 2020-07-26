@@ -24,7 +24,7 @@ class FaceImage extends Component {
                 <div className="middle">
                     <div>
                         <div className="fill" onClick={() => this.imageClick()}/>
-                        <img className="test" src="like512.png" alt="my image" width="150" onClick={this.imageClick}/>
+                        <img src="like512.png" alt="my image" width="150" onClick={this.imageClick}/>
                     </div>
                 </div>
                 {this.state.img}

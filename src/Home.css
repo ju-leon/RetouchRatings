@@ -1,0 +1,26 @@
+.divider {
+    height: 10px;
+    width: 10px;
+}
+
+.divider-big {
+    height: 80px;
+    width: 80px;
+}
+
+
+.caption {
+    font-size: 20px;
+    color: white;
+}
+
+.desc {
+    font-size: 18px;
+    color: lightgrey;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.link {
+    color: white;
+}
