@@ -8,15 +8,19 @@ class Leaderboard extends Component {
 
     constructor() {
         super();
-        this.state = {men: [], women: []};
+        this.state = {men: [], women: [], women_end: [], men_end: []};
     }
 
 
     componentDidMount() {
 
         fetch(process.env.REACT_APP_API_URL + "leaderboard").then(res => res.json()).then(querySnapshot => {
-            console.log(querySnapshot)
-            this.setState({men: querySnapshot.men, women: querySnapshot.women});
+            this.setState({
+                men: querySnapshot.men,
+                men_end: querySnapshot.men_end,
+                women: querySnapshot.women,
+                women_end: querySnapshot.women_end,
+            });
         })
     }
 
@@ -25,7 +29,6 @@ class Leaderboard extends Component {
             return <div/>
         }
 
-        console.log(this.state.men)
         return (
             <div className="desc">
                 <header className="App-header">
@@ -39,6 +42,13 @@ class Leaderboard extends Component {
 
                 <div className="divider"/>
 
+                Women End:
+                <div className="divider"/>
+
+                <PicRow images={this.state.women_end}/>
+
+                <div className="divider"/>
+
                 <div className="divider"/>
 
                 Men:
@@ -46,6 +56,14 @@ class Leaderboard extends Component {
 
                 <PicRow images={this.state.men}/>
 
+                <div className="divider"/>
+
+                Men End:
+                <div className="divider"/>
+
+                <PicRow images={this.state.men_end}/>
+
+                <div className="divider"/>
                 <div className="divider"/>
 
 
