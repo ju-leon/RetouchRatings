@@ -69,8 +69,8 @@ const Home = () => {
                         <div className="divider"/>
 
                         <div className="desc">
-                            Rate the people based on their attractiveness in the current image.
-                            Simply click the image of the person that is more attractive to you.
+                            Rate the person on the image itself and the image quality.
+                            Simply think of it as which of the two photos you'd be more likely to like if it appeared on you social media feed.
                         </div>
                         <div className="divider"/>
 
@@ -98,7 +98,7 @@ const Home = () => {
                         <div className="desc">
                             Retouch aims to automatically beautify faces on images. In order to do that, a dataset of
                             labeled faces is needed.
-                            By rating faces, you improove the dataset and generate a database of which faces are
+                            By rating faces, you improve the dataset and generate a database of which faces are
                             attractive and which faces are less attractive.
 
                         </div>
