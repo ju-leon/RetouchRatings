@@ -32,9 +32,8 @@ class FaceImage extends Component {
         );
     }
 
-    imageClick() {
+    async imageClick() {
 
-        console.log(process.env.REACT_APP_API_URL + 'announce_winner')
         const requestOptions = {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
@@ -43,10 +42,11 @@ class FaceImage extends Component {
                 looser: this.props.images[1 - this.props.index]
             })
         };
-        fetch(process.env.REACT_APP_API_URL + 'announce_winner', requestOptions)
-            .then(response => response.json())
-            .then(window.location.reload());
-        //window.location.reload()
+        await fetch(process.env.REACT_APP_API_URL + 'announce_winner', requestOptions)
+            .then(console.log("Got result"));
+
+        window.location.reload()
+
     }
 
 }
