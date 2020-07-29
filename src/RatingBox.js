@@ -7,13 +7,13 @@ class RatingBox extends Component {
 
     constructor() {
         super();
-        this.state = {url: "Halu", images: []};
+        this.state = {images: []};
     }
 
 
     componentDidMount() {
 
-        try{
+        try {
             fetch(process.env.REACT_APP_API_URL + "random_pair?gender=" + this.props.location.state.gender).then(res => res.json()).then(querySnapshot => {
                 console.log(querySnapshot)
                 querySnapshot.forEach(doc => {

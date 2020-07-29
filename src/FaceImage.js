@@ -9,7 +9,7 @@ class FaceImage extends Component {
 
     constructor() {
         super();
-        this.state = {url: "Halu", img: ""};
+        this.state = {url: process.env.REACT_APP_API_URL, img: ""};
     }
 
     componentDidMount() {
@@ -34,6 +34,7 @@ class FaceImage extends Component {
 
     imageClick() {
 
+        console.log(process.env.REACT_APP_API_URL + 'announce_winner')
         const requestOptions = {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
@@ -43,8 +44,9 @@ class FaceImage extends Component {
             })
         };
         fetch(process.env.REACT_APP_API_URL + 'announce_winner', requestOptions)
+            .then(response => response.json())
             .then(window.location.reload());
-
+        //window.location.reload()
     }
 
 }
